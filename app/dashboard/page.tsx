@@ -1,34 +1,26 @@
-import { eq } from "drizzle-orm";
-import { redirect } from "next/navigation";
+"use client";
 
-import { DashboardContent } from "@/components/dashboard/dashboard-content";
-import { getAuthSession } from "@/lib/auth/session";
-import { db } from "@/lib/db/client";
-import { users } from "@/lib/db/schema";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import DashboardContent from "@/components/dashboard/dashboard-content";
 
-function getGreeting(): string {
-  const hour = new Date().getHours();
-  if (hour < 12) return "Good morning";
-  if (hour < 18) return "Good afternoon";
-  return "Good evening";
-}
+export default function DashboardPage() {
+  const router = useRouter();
 
-export default async function DashboardPage() {
-  const session = await getAuthSession();
-  if (!session) redirect("/auth#signin");
-
-  const [user] = await db
-    .select({ firstName: users.firstName })
-    .from(users)
-    .where(eq(users.id, session.userId))
-    .limit(1);
-
-  const firstName = user?.firstName || "there";
+  useEffect(() => {
+    // Example: Scroll to top on route enter
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <DashboardContent
-      greeting={getGreeting()}
-      firstName={firstName}
-    />
+    <main className="w-full max-w-4xl mx-auto py-12 px-4 space-y-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+        Welcome to Teamvibe 🎉
+      </h1>
+      <p className="text-lg text-muted-foreground mb-8">
+        Your internal CRM for managing team members, roles, invitations, and employee data — all from one dashboard.
+      </p>
+      <DashboardContent />
+    </main>
   );
 }
