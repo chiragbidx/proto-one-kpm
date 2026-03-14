@@ -1,12 +1,19 @@
 "use client";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { inviteMemberAction } from "./actions";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
+// Use useActionState from React 19, replacing deprecated useFormState
 export default function InviteSection() {
-  const [formState, formAction] = useFormState(inviteMemberAction, null);
+  const [formState, formAction] = useActionState(
+    async (prevState, formData) => {
+      // Call the server action and return result.
+      return await inviteMemberAction(prevState, formData);
+    },
+    null
+  );
 
   return (
     <Card>
@@ -15,8 +22,15 @@ export default function InviteSection() {
       </CardHeader>
       <CardContent>
         <form action={formAction} className="flex flex-col gap-4">
-          <Input type="email" name="inviteEmail" placeholder="Enter email to invite" required />
-          <Button type="submit" className="w-full">Send Invite</Button>
+          <Input
+            type="email"
+            name="inviteEmail"
+            placeholder="Enter email to invite"
+            required
+          />
+          <Button type="submit" className="w-full">
+            Send Invite
+          </Button>
           {formState?.error && (
             <div className="text-red-600 text-sm">{formState.error}</div>
           )}
