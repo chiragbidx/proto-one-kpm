@@ -12,6 +12,42 @@ import { LayoutTeamSection } from "../components/home/LayoutTeamSection";
 import { LayoutTestimonialSection } from "../components/home/LayoutTestimonialSection";
 import { Navbar as LayoutNavbar } from "@/components/layout/navbar";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Teamvibe | Modern Internal CRM for Startups",
+  description:
+    "Teamvibe is a production-grade internal CRM platform for startups—manage your team, employees, and workflows with confidence. Powered by Next.js, Drizzle ORM, and PostgreSQL.",
+  openGraph: {
+    title: "Teamvibe | Modern Internal CRM for Startups",
+    description:
+      "Teamvibe: minimal Next.js starter evolved into a full-featured internal CRM for team and employee management. Clean UX, team invites, and dashboard, ready to ship.",
+    url: process.env.BASE_URL || "https://teamvibe.co",
+    siteName: "Teamvibe",
+    images: [
+      {
+        url: "/hero-image-light.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Teamvibe CRM dashboard preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Teamvibe | Modern Internal CRM for Startups",
+    description:
+      "Teamvibe is the fastest way to launch your internal CRM—manage team, employees, and workflows, built on Next.js 16.",
+    images: [
+      {
+        url: "/hero-image-light.jpeg",
+        alt: "Teamvibe CRM dashboard preview",
+      },
+    ],
+  },
+};
+
 export default function Home() {
   // Simple toggles so agents/users can hide sections without touching JSX.
   // Use ONLY_SECTIONS (comma list) to whitelist, or HIDE_SECTIONS to blacklist.
