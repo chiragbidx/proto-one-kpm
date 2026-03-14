@@ -43,7 +43,7 @@ export const LayoutContactSection = () => {
       firstName: "",
       lastName: "",
       email: "",
-      subject: "Starter Demo",
+      subject: "General Inquiry",
       message: "",
     },
   });
@@ -52,7 +52,7 @@ export const LayoutContactSection = () => {
     const { firstName, lastName, email, subject, message } = values;
     console.log(values);
 
-    const mailToLink = `mailto:hello@panda.dev?subject=${subject}&body=Hello, I am ${firstName} ${lastName}. My email is ${email}. %0D%0A${message}`;
+    const mailToLink = `mailto:hi@chirag.co?subject=${subject}&body=Hi Chirag, I am ${firstName} ${lastName} (${email}): %0D%0A${message}`;
 
     window.location.assign(mailToLink);
   }
@@ -66,50 +66,50 @@ export const LayoutContactSection = () => {
               Contact
             </h2>
 
-            <h2 className="text-3xl md:text-4xl font-bold">Talk to the Panda team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Contact the Founder
+            </h2>
           </div>
           <p className="mb-8 text-muted-foreground lg:w-5/6">
-            Need help customizing the starter, planning architecture, or
-            accelerating launch? Share your goals and timeline.
+            Have questions, need support, or want a demo? The Teamvibe team is led by Chirag Dodiya—reach out for personalized help or feedback.
           </p>
 
           <div className="flex flex-col gap-4">
             <div>
               <div className="flex gap-2 mb-1">
                 <Building2 />
-                <div className="font-bold">Find us</div>
+                <div className="font-bold">Chirag Dodiya</div>
               </div>
 
-              <div>Remote-first • San Francisco, CA</div>
+              <div>hi@chirag.co</div>
             </div>
 
             <div>
               <div className="flex gap-2 mb-1">
                 <Phone />
-                <div className="font-bold">Call us</div>
+                <div className="font-bold">Phone</div>
               </div>
 
-              <div>+1 (415) 555-0199</div>
+              <div>(not public)</div>
             </div>
 
             <div>
               <div className="flex gap-2 mb-1">
                 <Mail />
-                <div className="font-bold">Email us</div>
+                <div className="font-bold">Email</div>
               </div>
 
-              <div>hello@panda.dev</div>
+              <div>hi@chirag.co</div>
             </div>
 
             <div>
               <div className="flex gap-2">
                 <Clock />
-                <div className="font-bold">Visit us</div>
+                <div className="font-bold">Response Time</div>
               </div>
 
               <div>
-                <div>Monday - Friday</div>
-                <div>9AM - 6PM PT</div>
+                <div>Typically replies in 1 business day</div>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export const LayoutContactSection = () => {
                       <FormItem className="w-full">
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Leopoldo" {...field} />
+                          <Input placeholder="Your first name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -144,7 +144,7 @@ export const LayoutContactSection = () => {
                       <FormItem className="w-full">
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Miranda" {...field} />
+                          <Input placeholder="Your last name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -189,16 +189,16 @@ export const LayoutContactSection = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Starter Demo">
-                              Starter Demo
+                            <SelectItem value="General Inquiry">
+                              General Inquiry
                             </SelectItem>
-                            <SelectItem value="Architecture Review">
-                              Architecture Review
+                            <SelectItem value="Product Demo">
+                              Product Demo
                             </SelectItem>
-                            <SelectItem value="Design System">
-                              Design System
+                            <SelectItem value="Feedback">
+                              Feedback
                             </SelectItem>
-                            <SelectItem value="Billing Integration">Billing Integration</SelectItem>
+                            <SelectItem value="Support">Support</SelectItem>
                             <SelectItem value="Enterprise Plan">
                               Enterprise Plan
                             </SelectItem>
@@ -220,7 +220,7 @@ export const LayoutContactSection = () => {
                         <FormControl>
                           <Textarea
                             rows={5}
-                            placeholder="Tell us about your SaaS idea, stage, and timeline..."
+                            placeholder="Let us know how we can help…"
                             className="resize-none"
                             {...field}
                           />
@@ -232,7 +232,7 @@ export const LayoutContactSection = () => {
                   />
                 </div>
 
-                <Button className="mt-4">Send inquiry</Button>
+                <Button className="mt-4">Send to Chirag</Button>
               </form>
             </Form>
           </CardContent>
